@@ -276,7 +276,7 @@ end
 [vol(1), fit_FN92] = fn1992(xdata.^0.5, log(ydata), Aip);
 [vol(2), fit_BH05] = bh2005(xdata.^0.5, ydata, fit_FN92(1), C_v);
 if isempty(lam_r)
-    [lam_r, n_r]   = get_WBL(mean([vol(1), vol(2)]));
+    [lam_r, n_r]   = get_WBL_ranges(mean([vol(1), vol(2)]));
 end
 [vol(3), fit_BC12] = bc2012(xdata.^0.5, ydata, lam_r, n_r);
 
