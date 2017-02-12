@@ -4,9 +4,10 @@
 % University of Geneva
 % Copyright (C) 2014
 %
-% Updates:  April 2016: Minor bug on plottig function
+% Updates:  Apr 2016: Minor bug on plottig function
+%           Feb 2017: Fixed error on units (Thanks to Jean-Marie Prival)
 %
-% Email contact: costanza.bonadonna@unige.ch, sebastien.biasse@unige.ch
+% Email contact: costanza.bonadonna@unige.ch, sbiasse@hawaii.edu
 %
 % This program is free software; 
 % you can redistribute it and/or modify it under the terms of the 
@@ -49,7 +50,7 @@ cstMa_v = 2;        % Constant
 cstMa_e = 20;       % Constant error (%)
 
 % MER - Degruyter and Bonadonna (2012)
-wind_v  = -1;     % Maximum wind speed below tropopause (m/s)
+wind_v  = -1;       % Maximum wind speed below tropopause (m/s)
                     % Set -1 to propagate the wind speed obtained from
                     % Carey and Sparks (1986)
 wind_e  = 20;       % Wind speed error (%)
@@ -100,7 +101,7 @@ pcile   = [2, 5, 95, 98];
 %% Beginning of calculations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 tstart = now;
-clc;
+home;
 display('_________________________________________________________________');
 display(sprintf('TError run %s started: %s', run_nm, datestr(tstart)));
 
@@ -501,20 +502,20 @@ writefile(fid, VOL(:,:,2), vol(2), [], 'Volume PL (km3)', 1,1, pcile);
 writefile(fid, VOL(:,:,3), vol(3), [], 'Volume WBL (km3)', 1,1, pcile);
 fprintf(fid, '\n');
 
-writefile(fid, MASS(:,:,1), mass(1), [], 'Mass Exp (km3)', 1,1, pcile);
-writefile(fid, MASS(:,:,2), mass(2), [], 'Mass PL (km3)', 1,1, pcile);
-writefile(fid, MASS(:,:,3), mass(3), [], 'Mass WBL (km3)', 1,1, pcile);
+writefile(fid, MASS(:,:,1), mass(1), [], 'Mass Exp (kg)', 1,1, pcile);
+writefile(fid, MASS(:,:,2), mass(2), [], 'Mass PL (kg)', 1,1, pcile);
+writefile(fid, MASS(:,:,3), mass(3), [], 'Mass WBL (kg)', 1,1, pcile);
 fprintf(fid, '\n');
 
-writefile(fid, [DUR(:,1,1), DUR(:,2,1)], dur(1), [], 'Duration W&W87-Exp (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,2), DUR(:,2,2)], dur(2), [], 'Duration W&W87-PL (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,3), DUR(:,2,3)], dur(3), [], 'Duration W&W87-WBL (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,4), DUR(:,2,4)], dur(4), [], 'Duration Ma09-Exp (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,5), DUR(:,2,5)], dur(5), [], 'Duration Ma09-PL (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,6), DUR(:,2,6)], dur(6), [], 'Duration Ma09-WBL (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,7), DUR(:,2,7)], dur(7), [], 'Duration D&B12-Exp (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,8), DUR(:,2,8)], dur(8), [], 'Duration D&B12-PL (h)', 0,1, pcile);
-writefile(fid, [DUR(:,1,9), DUR(:,2,9)], dur(9), [], 'Duration D&B12-WBL (h)', 0,1, pcile);
+writefile(fid, [DUR(:,1,1), DUR(:,2,1)], dur(1), [], 'Duration W&W87-Exp (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,2), DUR(:,2,2)], dur(2), [], 'Duration W&W87-PL (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,3), DUR(:,2,3)], dur(3), [], 'Duration W&W87-WBL (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,4), DUR(:,2,4)], dur(4), [], 'Duration Ma09-Exp (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,5), DUR(:,2,5)], dur(5), [], 'Duration Ma09-PL (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,6), DUR(:,2,6)], dur(6), [], 'Duration Ma09-WBL (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,7), DUR(:,2,7)], dur(7), [], 'Duration D&B12-Exp (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,8), DUR(:,2,8)], dur(8), [], 'Duration D&B12-PL (min)', 0,1, pcile);
+writefile(fid, [DUR(:,1,9), DUR(:,2,9)], dur(9), [], 'Duration D&B12-WBL (min)', 0,1, pcile);
 fclose(fid);
 
 
@@ -586,5 +587,3 @@ end
 
 display(sprintf('TError run %s finished: %s (time elapsed: %3.0f min)', run_nm, datestr(now), etime(datevec(now),datevec(tstart))/60));
 display('_________________________________________________________________');
-
-
