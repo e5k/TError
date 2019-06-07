@@ -108,6 +108,11 @@ display(sprintf('TError run %s started: %s', run_nm, datestr(tstart)));
 
 % Create the output folders
 display('- Creating output folders...')
+
+if ~exist('Output/', 'dir')
+    mkdir('Output')
+end
+
 if exist(['Output/', run_nm, '/Propagation'], 'dir')
     choice = questdlg('The output folder already exists. Overwrite?', ...
         '', ...

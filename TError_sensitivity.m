@@ -44,7 +44,7 @@ wind_v  = -1;       % Average wind speed below tropopause (m/s)
                     % Carey and Sparks (1986)
 
 % Volume
-fl      = 'example.txt';
+fl      = 'isopach_example.txt';
                     % Main file for volume calculation in a tab-delimited 
                     % text file where:
                     % Row 1: Location of the breaks-in-slope (BIS) for the
@@ -91,6 +91,10 @@ display(sprintf('TError_sensitivity run %s started: %s', run_nm, datestr(tstart)
 
 
 % Create the output folders
+if ~exist('Output/', 'dir')
+    mkdir('Output')
+end
+
 display('- Creating output folders...')
 if exist(['Output/', run_nm, '/Sensitivity'], 'dir')
     choice = questdlg('The output folder already exists. Overwrite?', ...
