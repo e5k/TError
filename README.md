@@ -1,5 +1,7 @@
 # TError
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3590703.svg)](https://doi.org/10.5281/zenodo.3590703)
+
 **TError** is a *Matlab* package designed to quantify the uncertainty of eruption source parameters calculated from tephra deposits. Inputs of the code are a range of field-based, model-based and empirical parameters (i.e., clast diameter, crosswind and downwind ranges, thickness measurement, area of isopach contours, bulk deposit density, empirical constants and wind speed).
 
 **TError** is a contraction of Tephra and Error. Any bad joke is not intentional.
@@ -32,6 +34,8 @@ Instructions are provided in the the user manual `TError.pdf`. Updates are prese
 ## Citation
 Please cite **TError** as:
 > Biass, S., Bagheri, G., Aeberhard, W., Bonadonna, C., 2014. TError: towards a better quantification of the uncertainty propagated during the characterization of tephra deposits. Stat. Volcanol. 1, 1–27. https://doi.org/10.5038/2163-338X.1.2
+
+> Biass S, Bagheri G, Aeberhard W, Bonadonna C, 2014. TError v1.0. [doi:10.5281/zenodo.3590703](https://doi.org/10.5281/zenodo.3590702)
 
 ## License
 GBF is a free and open source software releaser under GPL 3. See the documentation or the file `LICENSE.md` for further information.
